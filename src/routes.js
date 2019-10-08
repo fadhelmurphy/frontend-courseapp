@@ -1,5 +1,8 @@
 import React from 'react';
 
+const Admin = React.lazy(() => import('./views/Course/Admin'));
+const Details = React.lazy(() => import('./views/Course/Details'));
+const More = React.lazy(() => import('./views/Course/More'));
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
 const Cards = React.lazy(() => import('./views/Base/Cards'));
 const Carousels = React.lazy(() => import('./views/Base/Carousels'));
@@ -40,6 +43,10 @@ const User = React.lazy(() => import('./views/Users/User'));
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
+  { path: '/courses',exact:true, name: 'Courses', component: Admin },
+  { path: '/courses/:id',exact:true, name: 'Course Detail', component: Details },
+  { path: '/courses/:id/edit',exact:true, name: 'Course Edit', component: Details },
+  { path: '/courses/:id/:num', name: 'Course Detailer', component: More },
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },
   { path: '/theme/typography', name: 'Typography', component: Typography },

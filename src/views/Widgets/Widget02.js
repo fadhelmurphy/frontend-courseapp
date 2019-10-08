@@ -18,8 +18,8 @@ const propTypes = {
 };
 
 const defaultProps = {
-  header: '$1,999.50',
-  mainText: 'Income',
+  header: 'Nama kursus',
+  mainText: '$1,999.50',
   icon: 'fa fa-cogs',
   color: 'primary',
   variant: '0',
@@ -39,7 +39,10 @@ class Widget02 extends Component {
     card.classes = mapToCssModules(classNames(className, card.style, padding.card), cssModule);
 
     const lead = { style: 'h5 mb-0', color: color, classes: '' };
-    lead.classes = classNames(lead.style, 'text-' + card.color, padding.lead);
+    lead.classes = classNames(lead.style, padding.lead);
+
+    const desc = {style: 'text-uppercase font-weight-bold font-xs', color: color, classes: ''};
+    desc.classes = classNames(desc.style, 'text-' + card.color);
 
     const blockIcon = function (icon) {
       const classes = classNames(icon, 'bg-' + card.color, padding.icon, 'font-2xl mr-3 float-left');
@@ -62,7 +65,7 @@ class Widget02 extends Component {
         <CardBody className={card.classes} {...attributes}>
           {blockIcon(card.icon)}
           <div className={lead.classes}>{header}</div>
-          <div className="text-muted text-uppercase font-weight-bold font-xs">{mainText}</div>
+          <div className={desc.classes}>{mainText}</div>
         </CardBody>
         {cardFooter()}
       </Card>
